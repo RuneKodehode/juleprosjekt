@@ -1,6 +1,7 @@
 body {
   margin: 0px;
   background-image: url("./Components/images/CageNisse.png");
+  background-color: black;
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;

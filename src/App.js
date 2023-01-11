@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Timer } from "./Components/countdown/cd";
+
+import { Guestbook } from "./Components/input/input";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div id="header">
+        <h1 id="juleHeader">Juleoppgave</h1>
+        <Timer />
+      </div>
+      <Guestbook />
+      <h2 id="disc">
+        Disclaimer: all rights to the background image belongs fully to
+        Kim@kodehode®
+      </h2>
     </div>
   );
 }

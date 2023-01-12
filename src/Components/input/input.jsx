@@ -12,7 +12,6 @@ export function Guestbook() {
     setTasks([...tasks, newTask]);
     localStorage.setItem("messages", JSON.stringify([...tasks, newTask]));
     setTask("");
-    document.getElementById("inputbox").value = "";
   };
   useEffect(() => {
     if (localStorage.getItem("messages")) {
@@ -26,7 +25,7 @@ export function Guestbook() {
       {" "}
       <div className="addTask"></div>
       <div id="input">
-        <input id="inputbox" onChange={message} />
+        <input value={task} id="inputbox" onChange={message} />
         <button id="btn" onClick={addTask}>
           {" "}
           Send

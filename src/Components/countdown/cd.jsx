@@ -31,8 +31,8 @@ export function Timer() {
   return (
     <div>
       <div id="countdown">
-        {`${time.days}`} dagar {`${time.hours}`} timar {`${time.minutes}`}{" "}
-        minuttar og {`${time.seconds}`} sekundar
+        {`${time.days}`}d {`${time.hours}`}t {`${time.minutes}`}m{" "}
+        {`${time.seconds}`}s
       </div>
     </div>
   );

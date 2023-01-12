@@ -6,19 +6,21 @@ export function Guestbook() {
   const message = (e) => {
     setTask(e.target.value);
   };
+
   const addTask = (e) => {
     const newTask = { id: new Date().getTime().toString(), title: task };
     setTasks([...tasks, newTask]);
-    localStorage.setItem("meldingar", JSON.stringify([...tasks, newTask]));
+    localStorage.setItem("messages", JSON.stringify([...tasks, newTask]));
     setTask("");
+    document.getElementById("inputbox").value = "";
   };
   useEffect(() => {
-    if (localStorage.getItem("meldingar")) {
-      const stored = JSON.parse(localStorage.getItem("meldingar"));
+    if (localStorage.getItem("messages")) {
+      const stored = JSON.parse(localStorage.getItem("messages"));
       setTasks(stored);
     }
   }, []);
-  let curTime = new Date().toString().substring(15, 21);
+  let currentTime = new Date().toString().substring(15, 21);
   return (
     <div>
       {" "}
@@ -27,15 +29,16 @@ export function Guestbook() {
         <input id="inputbox" onChange={message} />
         <button id="btn" onClick={addTask}>
           {" "}
-          Add Task
+          Send
         </button>
       </div>
       <div className="list" id="messages">
-        {tasks.map((msg) => {
+        {tasks.map((e) => {
           return (
-            <Fragment key={msg.id}>
-              <div>
-                <h1>{msg.title + " kl:" + curTime}</h1>
+            <Fragment key={e.id}>
+              <div id="chat">
+                <h1 id="message">{e.title}</h1>
+                <h3 id="timestamp">{"kl:" + currentTime}</h3>
               </div>
             </Fragment>
           );
